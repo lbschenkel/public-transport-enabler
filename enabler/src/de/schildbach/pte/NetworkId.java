@@ -49,7 +49,7 @@ public enum NetworkId {
     DSB,
 
     // Sweden
-    SE,
+    SE, SKANETRAFIKEN,
 
     // Norway
     NRI,

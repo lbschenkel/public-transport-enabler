@@ -17,32 +17,26 @@
 
 package de.schildbach.pte.live;
 
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import de.schildbach.pte.NetworkProvider.Accessibility;
+import de.schildbach.pte.NetworkProvider.WalkSpeed;
+import de.schildbach.pte.SeProvider;
+import de.schildbach.pte.SkanetrafikenProvider;
+import de.schildbach.pte.dto.*;
+import org.junit.Test;
 
 import java.util.Date;
 import java.util.EnumSet;
 
-import org.junit.Test;
-
-import de.schildbach.pte.NetworkProvider.Accessibility;
-import de.schildbach.pte.NetworkProvider.WalkSpeed;
-import de.schildbach.pte.SeProvider;
-import de.schildbach.pte.dto.Location;
-import de.schildbach.pte.dto.LocationType;
-import de.schildbach.pte.dto.NearbyLocationsResult;
-import de.schildbach.pte.dto.Product;
-import de.schildbach.pte.dto.QueryDeparturesResult;
-import de.schildbach.pte.dto.QueryTripsResult;
-import de.schildbach.pte.dto.SuggestLocationsResult;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author Andreas Schildbach
  */
-public class SeProviderLiveTest extends AbstractProviderLiveTest {
-    public SeProviderLiveTest() {
-        super(new SeProvider());
+public class SkanetrafikenLiveTest extends AbstractProviderLiveTest {
+    public SkanetrafikenLiveTest() {
+        super(new SkanetrafikenProvider());
     }
 
     @Test
@@ -54,7 +48,7 @@ public class SeProviderLiveTest extends AbstractProviderLiveTest {
     @Test
     public void nearbyStationsByCoordinate() throws Exception {
         final NearbyLocationsResult result = queryNearbyLocations(EnumSet.of(LocationType.STATION),
-                Location.coord(55602420, 13033018),
+                Location.coord(6167930, 1323215),
                 1000, 0);
         print(result);
     }
@@ -73,7 +67,7 @@ public class SeProviderLiveTest extends AbstractProviderLiveTest {
 
     @Test
     public void suggestLocations() throws Exception {
-        final SuggestLocationsResult result = suggestLocations("Airport");
+        final SuggestLocationsResult result = suggestLocations("Eriksdalsgatan 3A");
         print(result);
     }
 
